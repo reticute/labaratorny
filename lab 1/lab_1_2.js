@@ -14,4 +14,18 @@ for (const item of array) {
    }
 }
 
-console.dir(array)
+console.dir(array, empty)
+
+const dynamicArray = {}
+for (const item of array) {
+  const type = typeof item;
+
+  if (!(type in dynamicArray)) 
+	dynamicArray[type] = 0;
+
+
+dynamicArray[type]++
+
+}
+
+console.dir(dynamicArray)
