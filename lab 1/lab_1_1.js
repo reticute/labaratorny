@@ -8,9 +8,10 @@ const b = inc(a)
 console.dir({a, b});
 
 function inc2(num) {
-    num.n
+    num.n++
+    return 
 }
 
 const obj = { n: 5 }
-inc(obj)
+inc2(obj)
 console.dir(obj);
