@@ -5,11 +5,11 @@ function average(a, b) {
 }
 
 function square(x){
-  return x*x;
+  return x**2;
 }
 
 function cube(x){
-  return x*x*x;
+  return x**3;
 }
 
 
