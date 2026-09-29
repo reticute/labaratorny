@@ -19,8 +19,7 @@ function findPhoneByName(name) {
 console.log(findPhoneByName('Sam Dunne'));
 console.log(findPhoneByName('John Egbert'));
 
-// -----
-
+// hash collection
 const caller2 = {
     'Ilaria Panciroli': '+380508523252',
     'Manoel Medeiros': '+380950684572',
