@@ -9,7 +9,6 @@ console.dir({a, b});
 
 function inc2(num) {
     num.n++
-    return 
 }
 
 const obj = { n: 5 }
