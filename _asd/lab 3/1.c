@@ -1,64 +1,71 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
+#include <ncurses.h>
+#include <unistd.h>
 
-int main() {
-double a, b;
-    int n;
-    printf("Input a: ");
-    scanf("%lf", &a);
-    printf("Input b: ");
-    scanf("%lf", &b);
-    printf("Input n: ");
-    scanf("%d", &n);
+void draw(int x, int y);
 
-    if (n <= 0 || a >= b) {
-        printf("n must be > 0, a must be < b.\n");
-        return 1;
-    }
-    srand((unsigned int)time(NULL)); //random number generator
+int main()
+{
+    initscr();
+    noecho();
+    start_color();
+    init_pair(1, COLOR_WHITE, COLOR_BLACK);
 
-    double *Y = (double*)malloc(n * sizeof(double));
-    double *Z = (double*)malloc(n * sizeof(double));
+    int m, n;
+    getmaxyx(stdscr, m, n);
 
-    for (int i = 0; i < n; i++) {
-        double random_0_1 = (double)rand() / RAND_MAX;
-        Y[i] = a + random_0_1 * (b - a);
+    int yn = m - 2; 
+    int xn = n - 1;
+
+    int r = yn / 2;
+    int c = xn / 2;
+
+    if (r >= 0 && r <= yn && c >= 0 && c <= xn) {
+        draw(r, c);
     }
 
-    for (int i = 0; i < n; i++) {
-        if (Y[i] > -50.0 && Y[i] < 0.0) {
-            Z[i] = 10.0 * a - Y[i];
+    int dr[] = {0, 1, 0, -1};
+    int dc[] = {1, 0, -1, 0};
+
+    int h_len = 1;
+    int v_len = 1; 
+
+    int total_cells = (yn + 1) * (xn + 1);
+    int drawn = 1;
+    int dir = 0; 
+
+    while (drawn < total_cells) {
+        int current_len = (dir == 0 || dir == 2) ? h_len : v_len;
+
+        for (int s = 0; s < current_len; s++) {
+            r += dr[dir];
+            c += dc[dir];
+
+            if (r >= 0 && r <= yn && c >= 0 && c <= xn) {
+                draw(r, c);
+            }
+            drawn++;
+            if (drawn >= total_cells) break;
+        }
+
+        if (dir == 0 || dir == 2) {
+            h_len++;
         } else {
-            Z[i] = 1.0 + Y[i] * Y[i];
+            v_len++;
         }
-    }
-    double R = 0.0;
-    for (int i = 0; i < n; i++) {
-        int i_math = i + 1; 
-        double term = pow(-1.0, i_math) * b + Z[i];
-        
-        if (i == 0 || term > R) {
-            R = term;
-        }
-    }
-    printf("Input data:\n");
-    printf("a = %.3f, b = %.3f, n = %d\n\n", a, b, n);
-    printf("Initial array Y[n]:\n");
-    for (int i = 0; i < n; i++) {
-        printf("Y[%d] = %.3f\n", i, Y[i]);
-    }
-    printf("\nIntermediate array Z[n]:\n");
-    for (int i = 0; i < n; i++) {
-        printf("Z[%d] = %.3f\n", i, Z[i]);
+
+        dir = (dir + 1) % 4;
     }
 
-    printf("\nResulting R value:\n");
-    printf("R = %.3f\n", R);
-
-    free(Y);
-    free(Z);
+    getch();
+    endwin();
     return 0;
 }
 
+void draw(int x, int y)
+{
+    attron(COLOR_PAIR(1));
+    mvaddch(x, y, '#');
+    refresh();
+    usleep(20000);
+}

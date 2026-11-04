@@ -1,0 +1,59 @@
+{
+  "configurations": [
+    {
+      "name": "linux-clang-x64",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "\"/usr/local/include/**\""
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "windowsSdkVersion": "10.0.26100.0",
+      "compilerPath": "cl.exe",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "linux-clang-x64"
+    },
+    {
+      "name": "WSL",
+      "intelliSenseMode": "${default}",
+      "includePath": [
+        "d:/uni/repo/labaratorny",
+        "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include/c++/5",
+        "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include/x86_64-linux-gnu/c++/5",
+        "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include/c++/5/backward",
+        "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/lib/gcc/x86_64-linux-gnu/5/include",
+        "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/local/include",
+        "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed",
+        "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include/x86_64-linux-gnu",
+        "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include"
+      ],
+      "defines": [
+        "__linux__",
+        "__x86_64__"
+      ],
+      "browse": {
+        "path": [
+          "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include/c++/5",
+          "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include/x86_64-linux-gnu/c++/5",
+          "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/lib/gcc/x86_64-linux-gnu/5/include",
+          "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/local/include",
+          "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed",
+          "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include/x86_64-linux-gnu",
+          "C:/Users/fakes/AppData/Local/lxss/rootfs/usr/include/*"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "windowsSdkVersion": "10.0.26100.0",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "mergeConfigurations": false,
+      "recursiveIncludes": {},
+      "compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe"
+    }
+  ],
+  "version": 4
+}
