@@ -6,6 +6,10 @@ void draw(int x, int y);
 
 int main()
 {
+    // 80x25
+    printf("\033[8;25;80t");
+    fflush(stdout);
+    usleep(50000);
     initscr();
     noecho();
     start_color();
